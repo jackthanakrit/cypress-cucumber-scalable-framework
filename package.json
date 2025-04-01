@@ -19,7 +19,9 @@
   "homepage": "https://github.com/jackthanakrit/cypress-cucumber-scalable-framework#readme",
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
     "@cypress/webpack-preprocessor": "^6.0.4",
-    "cypress": "^14.2.1"
+    "cypress": "^14.2.1",
+    "esbuild": "^0.25.2"
   }
 }

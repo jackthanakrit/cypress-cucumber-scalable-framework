@@ -17,7 +17,7 @@ This project is a scalable testing framework using Cypress and Cucumber for end-
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/jackthanakrit/cypress-cucumber-scalable-framework.git
    cd cypress-cucumber-scalable-framework
    ```
 
@@ -44,70 +44,73 @@ This project is a scalable testing framework using Cypress and Cucumber for end-
 
 ```plaintext
 .
-├── e2e                     # Main test folder
-│   ├── features            # Gherkin .feature files
-│   │   ├── auth
-│   │   │   └── login.feature
-│   │   └── dashboard
-│   │       └── dashboard.feature
-│   └── step_definitions    # Step definitions for each feature
-│       ├── auth
-│       │   └── loginSteps.js
-│       └── dashboard
-│           └── dashboardSteps.js
-├── fixtures                # Static test data (JSON, CSV, etc.)
-│   └── users.json
-├── pages                   # Page Object Model (POM) files
-│   ├── loginPage.js
-│   └── dashboardPage.js
-├── support                 # Global config & reusable logic
-│   ├── commands.js         # Custom Cypress commands
-│   └── e2e.js              # Global imports (auto-loaded by Cypress)
-├── utils                   # Utility functions (date, API, DB, etc.)
-│   ├── dateUtils.js
-│   ├── axiosClient.js
-│   └── db.js
-├── .env                    # Environment variables (optional)
-├── cypress.config.js       # Cypress configuration file
-├── package.json            # NPM scripts & dependencies
-└── README.md               # Project documentation
+├── cypress
+│   ├── e2e                            # All your tests
+│   │   └── features                   # Gherkin feature files and step definitions
+│   │       ├── auth
+│   │       │   ├── login.feature
+│   │       │   └── login.js           # Paired step definitions (same filename)
+│   │       ├── dashboard
+│   │       │   ├── dashboard.feature
+│   │       │   └── dashboard.js
+│   │       └── cart
+│   │           ├── cart.feature
+│   │           └── cart.js
+│   ├── fixtures                       # Static test data (JSON, etc.)
+│   │   └── users.json
+│   ├── pages                          # Page Object Models (POM)
+│   │   ├── loginPage.js
+│   │   ├── dashboardPage.js
+│   │   └── cartPage.js
+│   ├── support
+│   │   ├── commands.js                # Custom Cypress commands (e.g., cy.login())
+│   │   └── e2e.js                     # Auto-loaded before each test run
+│   └── utils                          # Pure JS helpers (no cy.* usage)
+│       ├── axiosClient.js
+│       ├── dateUtils.js
+│       └── db.js
+├── .env                               # Optional env variables (baseUrl, credentials)
+├── .gitignore                         # Ignore node_modules, videos, screenshots
+├── cypress.config.js                  # Cypress config (plugin setup, baseUrl, etc.)
+├── package.json                       # NPM scripts, dependencies
+├── README.md                          # Project documentation
+└── node_modules/                      # Installed dependencies
 ```
 
 ---
 
 ## Folder Responsibilities
 
-### `e2e/features/`
+### `cypress/e2e/features/`
 
-- Contains Gherkin `.feature` files that define test scenarios.
-- Organized by feature or module (e.g., `auth`, `dashboard`).
+- Contains all test files, including `.feature` files and their paired step definitions.
+- Organized by feature or module (e.g., `auth`, `dashboard`, `cart`).
 
-### `e2e/step_definitions/`
+### `cypress/fixtures/`
 
-- Contains JavaScript files that implement the steps defined in `.feature` files.
-- Organized to match the structure of the `features` folder.
+- Stores static test data like JSON files or mock data.
 
-### `fixtures/`
-
-- Stores static test data like JSON files, CSVs, or mock data.
-
-### `pages/`
+### `cypress/pages/`
 
 - Implements the Page Object Model (POM) pattern.
 - Each file represents a page and contains selectors and reusable actions.
 
-### `support/`
+### `cypress/support/`
 
-- `commands.js`: Custom Cypress commands.
+- `commands.js`: Custom Cypress commands (e.g., `cy.login()`).
 - `e2e.js`: Global imports and setup logic (e.g., hooks, reusable logic).
 
-### `utils/`
+### `cypress/utils/`
 
-- Contains utility functions for non-Cypress-specific logic (e.g., date formatting, API calls, database queries).
+- Contains utility functions for non-Cypress-specific logic (e.g., API calls, date formatting, database queries).
 
 ### `.env`
 
 - Optional file for managing environment variables like base URLs, tokens, etc.
+
+### `.gitignore`
+
+- Specifies files and directories to be ignored by Git (e.g., `node_modules`, videos, screenshots).
 
 ### `cypress.config.js`
 
@@ -126,13 +129,13 @@ This project is a scalable testing framework using Cypress and Cucumber for end-
 - **Run specific feature file:**
 
   ```bash
-  npx cypress run --spec "e2e/features/auth/login.feature"
+  npx cypress run --spec "cypress/e2e/features/auth/login.feature"
   ```
 
 - **Add new tests:**
 
-  - Create a `.feature` file in the `features` folder.
-  - Add corresponding step definitions in the `step_definitions` folder.
+  - Create a `.feature` file in the `e2e/features` folder based on the feature (e.g., login tests should be in `auth/*.feature`).
+  - Add corresponding step definitions in the same folder with the same filename (e.g., `auth/login.js` for `auth/login.feature`).
 
 ---
 
