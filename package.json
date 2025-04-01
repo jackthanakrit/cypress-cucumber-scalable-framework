@@ -1,0 +1,25 @@
+{
+  "name": "cypress-cucumber-scalable-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackthanakrit/cypress-cucumber-scalable-framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackthanakrit/cypress-cucumber-scalable-framework/issues"
+  },
+  "homepage": "https://github.com/jackthanakrit/cypress-cucumber-scalable-framework#readme",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "@cypress/webpack-preprocessor": "^6.0.4",
+    "cypress": "^14.2.1"
+  }
+}
