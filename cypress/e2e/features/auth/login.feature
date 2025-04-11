@@ -7,6 +7,10 @@ Feature: Sauce Demo Login
     Then I should see the "<expectedResult>"
 
     Examples:
-      | username        | password     | expectedResult                      |
-      | standard_user   | secret_sauce | Products                            |
-      | locked_out_user | secret_sauce | Epic sadface: Sorry, this user has been locked out. |
+      | username                | password     | expectedResult                                      |
+      | standard_user           | secret_sauce | Products                                            |
+      | locked_out_user         | secret_sauce | Epic sadface: Sorry, this user has been locked out. |
+      | problem_user            | secret_sauce | Products                                            |
+      | performance_glitch_user | secret_sauce | Products                                            |
+      | error_user              | secret_sauce | Products                                            |
+      | visual_user             | secret_sauce | Products                                            |
