@@ -2,6 +2,12 @@
 
 This project is a scalable testing framework using Cypress and Cucumber for end-to-end testing. It follows a modular structure to ensure maintainability and scalability.
 
+## Allure Report
+
+The test results are available as an Allure Report. You can view the latest report [here](https://jackthanakrit.github.io/cypress-cucumber-scalable-framework/).
+
+---
+
 ## Table of Contents
 
 - [Setup](#setup)
