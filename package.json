@@ -21,6 +21,8 @@
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
     "@cypress/webpack-preprocessor": "^6.0.4",
+    "@shelex/cypress-allure-plugin": "^2.41.0",
+    "allure-commandline": "^2.33.0",
     "cypress": "^14.2.1",
     "esbuild": "^0.25.2"
   }
